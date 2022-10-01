@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Employee Directory
 Functionality:
 * Add Employee Data : Allows the HR to store the employee details like:
@@ -19,3 +20,7 @@ Functionality:
 =======
 # Mithani_Jay_002788726
 >>>>>>> 6b1b8f7 (Initial commit)
+=======
+# Mithani_Jay_002788726
+Jay Mithani First push 
+>>>>>>> 419d0dc (i)
