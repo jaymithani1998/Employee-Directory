@@ -42,19 +42,21 @@ public class SearchJPanel extends javax.swing.JPanel {
         txtFilter = new javax.swing.JTextField();
         lblFilter = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(688, 454));
+
         tblEmp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Age", "Gender", "Start Date", "Level", "Team Info", "Position", "Phone Number", "Email ID", "Photo"
+                "ID", "Name", "Age", "Gender", "Start Date", "Level", "Team Info", "Position", "Phone Number", "Email ID"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -64,8 +66,10 @@ public class SearchJPanel extends javax.swing.JPanel {
         tblEmp.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblEmp);
 
+        lblSearchTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblSearchTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSearchTitle.setText("Search Employee Details");
+        lblSearchTitle.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
 
         txtFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,26 +89,23 @@ public class SearchJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(lblFilter)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(lblSearchTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lblSearchTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblSearchTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(lblSearchTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFilter))
@@ -142,9 +143,9 @@ public class SearchJPanel extends javax.swing.JPanel {
         
         for(Employee e: directory.getDirectory())
         {
-            Object[] row=new Object[11];
+            Object[] row=new Object[10];
             
-            row[0]=e;
+            row[0]=e.getEmpId();
             row[1]=e.getEmpName();
             row[2]=e.getEmpAge();
             row[3]=e.getEmpGender();
@@ -154,7 +155,6 @@ public class SearchJPanel extends javax.swing.JPanel {
             row[7]=e.getEmpPosition();
             row[8]=e.getEmpCellPhoneNumber();
             row[9]=e.getEmpEmailAddress();
-            row[10]=e.getEmpPhoto();   
                         
             model.addRow(row);
             

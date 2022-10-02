@@ -4,6 +4,9 @@
  */
 package model;
 
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jaymithani
@@ -20,7 +23,7 @@ public class Employee {
     private String empCellPhoneNumber;
     private String empEmailAddress;
     private String empPhoto;
-
+    
     public String getEmpPosition() {
         return empPosition;
     }
