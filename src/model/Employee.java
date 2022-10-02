@@ -16,10 +16,21 @@ public class Employee {
     private String empStartDate;
     private String empLevel;
     private String empTeamInfo;
+    private String empPosition;
     private String empCellPhoneNumber;
     private String empEmailAddress;
     private String empPhoto;
 
+    public String getEmpPosition() {
+        return empPosition;
+    }
+
+    public void setEmpPosition(String empPosition) {
+        this.empPosition = empPosition;
+    }
+    
+    
+    
     public String getEmpName() {
         return empName;
     }

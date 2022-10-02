@@ -25,5 +25,11 @@ public class EmployeeDirectory {
     public void setDirectory(ArrayList<Employee> directory) {
         this.directory = directory;
     }
+    
+    public Employee addNewEmployee(){
+        Employee newEmployee = new Employee();
+        directory.add(newEmployee);
+        return newEmployee;
+    }
  
 }
