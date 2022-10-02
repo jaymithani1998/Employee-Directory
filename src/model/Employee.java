@@ -111,5 +111,8 @@ public class Employee {
         this.empPhoto = empPhoto;
     }
     
-    
+    @Override
+    public String toString(){
+        return empName;
+    }
 }

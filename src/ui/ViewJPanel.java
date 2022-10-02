@@ -4,6 +4,7 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Employee;
 import model.EmployeeDirectory;
@@ -86,8 +87,18 @@ public class ViewJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblEmp);
 
         btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblName.setText("Name");
@@ -246,6 +257,51 @@ public class ViewJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtImageActionPerformed
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int SelectRowIndex = tblEmp.getSelectedRow();
+        
+        if(SelectRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to delete a employee details");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblEmp.getModel();
+        Employee selectedEmployee =  (Employee) model.getValueAt(SelectRowIndex, 0);
+        
+        directory.deleteEmployee(selectedEmployee);
+        
+        JOptionPane.showMessageDialog(this, "Employee details deleted");
+        
+        populateTable();
+        
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        int SelectRowIndex = tblEmp.getSelectedRow();
+        
+        if(SelectRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to view employee details");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblEmp.getModel();
+        Employee selectedEmployee =  (Employee) model.getValueAt(SelectRowIndex, 0);
+        
+        txtAge.setText(String.valueOf(selectedEmployee.getEmpAge()));
+        txtName.setText(selectedEmployee.getEmpName());
+        txtId.setText(selectedEmployee.getEmpId());
+        txtGender.setText(selectedEmployee.getEmpGender());
+        txtDate.setText(selectedEmployee.getEmpGender());
+        txtLevel.setText(selectedEmployee.getEmpLevel());
+        txtTeam.setText(selectedEmployee.getEmpTeamInfo());
+        txtPosition.setText(selectedEmployee.getEmpPosition());
+        txtPhone.setText(selectedEmployee.getEmpCellPhoneNumber());
+        txtEmail.setText(selectedEmployee.getEmpEmailAddress());
+        txtImage.setText(selectedEmployee.getEmpPhoto());
+    }//GEN-LAST:event_btnViewActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
@@ -283,7 +339,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         for (Employee e : directory.getDirectory()){
             Object[] row= new Object[4];
-            row[0] = e.getEmpName();
+            row[0] = e;
             row[1] = e.getEmpId();
             row[2] = e.getEmpLevel();
             row[3] = e.getEmpTeamInfo();
