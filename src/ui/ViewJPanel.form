@@ -318,9 +318,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtName">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameActionPerformed"/>
       </Events>
@@ -334,9 +331,6 @@
     <Component class="javax.swing.JTextField" name="txtPhone">
     </Component>
     <Component class="javax.swing.JTextField" name="txtId">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtGender">
     </Component>

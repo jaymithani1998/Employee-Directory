@@ -4,7 +4,9 @@
  */
 package ui;
 
+import java.awt.Image;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Employee;
@@ -136,14 +138,11 @@ public class ViewJPanel extends javax.swing.JPanel {
         lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblEmail.setText("Email");
 
-        txtName.setEditable(false);
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
             }
         });
-
-        txtId.setEditable(false);
 
         lblPhoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -330,7 +329,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtName.setText(selectedEmployee.getEmpName());
         txtId.setText(selectedEmployee.getEmpId());
         txtGender.setText(selectedEmployee.getEmpGender());
-        txtDate.setText(selectedEmployee.getEmpGender());
+        txtDate.setText(selectedEmployee.getEmpStartDate());
         txtLevel.setText(selectedEmployee.getEmpLevel());
         txtTeam.setText(selectedEmployee.getEmpTeamInfo());
         txtPosition.setText(selectedEmployee.getEmpPosition());
@@ -372,7 +371,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             String PositionTitle = txtPosition.getText();
             String CellPhone = txtPhone.getText();
             String Email = txtEmail.getText();
-            String Photo = txtPhoto.getText();
+            //String Photo = txtPhoto.getText();
                         
             selectedEmployee.setEmpName(Name);
             selectedEmployee.setEmpId(Employeeid);
@@ -383,24 +382,26 @@ public class ViewJPanel extends javax.swing.JPanel {
             selectedEmployee.setEmpTeamInfo(TeamInfo);
             selectedEmployee.setEmpPosition(PositionTitle);
             selectedEmployee.setEmpCellPhoneNumber(CellPhone);
-            selectedEmployee.setEmpId(Email);
-            selectedEmployee.setEmpPhoto(Photo);
+            selectedEmployee.setEmpEmailAddress(Email);
+            //selectedEmployee.setEmpPhoto(Photo);
             
-            model.setValueAt(Employeeid,tblEmp.getSelectedRow(), 0);
-            model.setValueAt(Name,tblEmp.getSelectedRow(), 1);
-            model.setValueAt(Age,tblEmp.getSelectedRow(), 2);
-            model.setValueAt(Gender,tblEmp.getSelectedRow(), 3);
-            model.setValueAt(StartDate,tblEmp.getSelectedRow(), 4);
-            model.setValueAt(Level,tblEmp.getSelectedRow(), 5);
-            model.setValueAt(TeamInfo,tblEmp.getSelectedRow(), 6);
-            model.setValueAt(PositionTitle,tblEmp.getSelectedRow(), 7);
-            model.setValueAt(CellPhone,tblEmp.getSelectedRow(), 8);
-            model.setValueAt(Email,tblEmp.getSelectedRow(), 9);
-            model.setValueAt(Photo,tblEmp.getSelectedRow(), 10);
+            model.setValueAt(Name,tblEmp.getSelectedRow(), 0);
+            model.setValueAt(Employeeid,tblEmp.getSelectedRow(), 1);
+            //model.setValueAt(Age,tblEmp.getSelectedRow(), 2);
+            //model.setValueAt(Gender,tblEmp.getSelectedRow(), 3);
+            //model.setValueAt(StartDate,tblEmp.getSelectedRow(), 4);
+            model.setValueAt(Level,tblEmp.getSelectedRow(), 2);
+            model.setValueAt(TeamInfo,tblEmp.getSelectedRow(), 3);
+            //model.setValueAt(PositionTitle,tblEmp.getSelectedRow(), 7);
+            //model.setValueAt(CellPhone,tblEmp.getSelectedRow(), 8);
+            //model.setValueAt(Email,tblEmp.getSelectedRow(), 9);
+            //model.setValueAt(Photo,tblEmp.getSelectedRow(), 10);
              
+            System.out.println(" Breakpoint");
+            
             JOptionPane.showMessageDialog(this,"Employee Details upadted successfully");
             
-            //populateTable();
+            populateTable();
             
             txtName.setText("");
             txtId.setText("");
@@ -460,13 +461,16 @@ public class ViewJPanel extends javax.swing.JPanel {
             row[1] = e.getEmpId();
             row[2] = e.getEmpLevel();
             row[3] = e.getEmpTeamInfo();
-            
             model.addRow(row);
         }
         
     }
 
     private Icon resize_image(String empPhoto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ImageIcon image_icon = new ImageIcon(empPhoto);
+        Image img = image_icon.getImage();
+        Image new_image = img.getScaledInstance(300,144,Image.SCALE_SMOOTH);
+        ImageIcon new_image_icon = new ImageIcon(new_image);
+        return new_image_icon;    
     }
 }
