@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # Employee Directory
 Functionality:
 * Add Employee Data : Allows the HR to store the employee details like:
@@ -15,12 +13,3 @@ Functionality:
 * View/Delete Data - Allows HR to view/delete employee data from directory by selecting corresponding entry in given table
 * Update - Allow's to update employee detail
 * Search - Allow's HR to seach employee profile by entering search option(Name, ID, etc)
-  
-  
-=======
-# Mithani_Jay_002788726
->>>>>>> 6b1b8f7 (Initial commit)
-=======
-# Mithani_Jay_002788726
-Jay Mithani First push 
->>>>>>> 419d0dc (i)
