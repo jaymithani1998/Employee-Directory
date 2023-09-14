@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Employee Directory
 Functionality:
 * Add Employee Data : Allows the HR to store the employee details like:
@@ -15,3 +16,6 @@ Functionality:
 * Search - Allow's HR to seach employee profile by entering search option(Name, ID, etc)
   
   
+=======
+# Mithani_Jay_002788726
+>>>>>>> 6b1b8f7 (Initial commit)
